@@ -12,8 +12,8 @@ body:
     attributes:
       label: Tacos?
       options:
-        - Yes
-        - Please
+        - "Yes"
+        - "Please"
     validations:
       required: true
 
