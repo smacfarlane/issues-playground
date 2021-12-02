@@ -8,16 +8,12 @@ jobs:
   taco:
     if: ${{ contains(github.event.issue.labels.*.name, 'taco') }}
     runs-on: ubuntu-latest
+    env: 
+      GITHUB_TOKEN: ${{github.token}}
     steps:
-      - name: Debug
-        run: |
-          gh --version
-          gh issue comment --help
-
       - name: Serve Taco
         run: | 
-          gh issue comment ${{ github.event.issue.number }} --repo ${{ github.repository }} --body-file .github/templates/taco.md  
-
+          .github/scripts/post_a_taco.sh "${{ github.event.issue.comments_url }}"
       - name: Close Issue
         run: |
-          gh issue close ${{ github.event.issue.number }} --repo ${{ github.repository }}
+          .github/scripts/close_issue.sh "${{ github.event.issue.url }}"
