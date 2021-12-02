@@ -1,0 +1,23 @@
+name: Help Request
+description: Have need of something that doesn't fit another category?
+title: "[HELP]: "
+labels: ["help"]
+body:
+  - type: markdown
+    attributes: 
+      value: |
+        Thank you for using this thing
+  - type: input
+    attributes:
+      label: Slack
+      description: Where can we reach you in slack?
+  - type: input
+    attributes:
+      label: Project/Team
+      description: What team does this affect?
+  - type: textarea
+    id: request
+    attributes:
+      label: request
+      placeholder: What can we help you with?
+  
