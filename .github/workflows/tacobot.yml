@@ -1,0 +1,18 @@
+---
+on: 
+  issues:
+    types: [opened, edited]
+
+
+jobs: 
+  taco:
+    if: ${{ contains(github.event.issue.labels.*.name, 'taco') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Serve Taco
+        run: | 
+          gh issue commment ${{ github.event.issue.number }} --repo ${{ github.repository }} --body-file .github/templates/taco.md  
+
+      - name: Close Issue
+        run: |
+          gh issue close ${{ github.event.issue.number }} --repo ${{ github.repository }}
