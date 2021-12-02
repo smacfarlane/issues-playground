@@ -11,9 +11,13 @@ jobs:
     env: 
       GITHUB_TOKEN: ${{github.token}}
     steps:
+      - name: Clone repository
+        uses: actions/checkout@v2
+
       - name: Serve Taco
         run: | 
           .github/scripts/post_a_taco.sh "${{ github.event.issue.comments_url }}"
+
       - name: Close Issue
         run: |
           .github/scripts/close_issue.sh "${{ github.event.issue.url }}"
