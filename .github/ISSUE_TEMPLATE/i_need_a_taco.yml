@@ -7,4 +7,13 @@ body:
     attributes: 
       value: |
         Tacos!
+  - type: dropdown
+    id: tacos
+    attributes:
+      label: Tacos?
+      options:
+        - Yes
+        - Please
+    validations:
+      required: true
 
