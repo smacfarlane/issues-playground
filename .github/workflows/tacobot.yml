@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Debug
+        run: |
           gh --version
           gh issue comment --help
 
